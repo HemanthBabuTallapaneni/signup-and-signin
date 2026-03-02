@@ -29,7 +29,8 @@ const Signup = () => {
 
         setLoading(true);
         try {
-            const response = await axios.post('https://signup-and-signin-sandy.vercel.app/api/auth/register', {
+            const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+            const response = await axios.post(`${API_URL}/api/auth/register`, {
                 username: formData.username,
                 email: formData.email,
                 phone: formData.phone,

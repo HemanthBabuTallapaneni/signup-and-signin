@@ -24,7 +24,8 @@ const Signin = () => {
         setLoading(true);
 
         try {
-            const response = await axios.post('https://signup-and-signin-sandy.vercel.app/api/auth/login', {
+            const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+            const response = await axios.post(`${API_URL}/api/auth/login`, {
                 username: formData.username,
                 password: formData.password
             }, {
